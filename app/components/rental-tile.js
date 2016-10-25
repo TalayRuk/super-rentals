@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  isImageShowing: false, //we set this as false so it'll always be hidden by default untill the user clicks the button. 
+  isImageShowing: false, //we set this as false so it'll always be hidden by default untill the user clicks the button.
   //add function to trigger button
   actions: {
     imageShow: function() {
