@@ -17,6 +17,21 @@ module.exports = function(environment) {
       }
     },
 
+    firebase: {
+      // <script>
+        // Initialize Firebase
+        // var config = {
+      apiKey: "AIzaSyBzDYhkcb-WamkgABuT36APscEyAYhHiGc",
+      authDomain: "super-rentals-b41e7.firebaseapp.com",
+      databaseURL: "https://super-rentals-b41e7.firebaseio.com",
+      storageBucket: "super-rentals-b41e7.appspot.com",
+      messagingSenderId: "408338327518"
+        // };
+        // firebase.initializeApp(config);
+      // </script>
+    },
+
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
