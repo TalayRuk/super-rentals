@@ -39,9 +39,11 @@ export default Ember.Route.extend({
       //When we clicked a rental's delete button, our action up from components(templates/components/rental-tile.hbs to rental-tile.js), through template (templates/index.hbs), & into the route handler(routes/index.js).
       rental.destroyRecord();
       //Then the route handler will access our data store (firebase) & delete the obj.
+      //**destroyRecord() is already exist in Ember Method
       this.transitionTo('index');
       //To return to the templates/index.hbs page after a rental is deleted.
     }
+    //check out: http://emberjs.com/api/classes/Ember.Route.html Ember.Route Class ..methods, properties, events
   }
 });
 //your table names in Firebase will be a plural model name, and the model hooks in your routes will refer to the singular model name.
