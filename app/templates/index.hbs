@@ -7,7 +7,7 @@ We hope you find exactly what you're looking for in a place to stay.
      <!-- <li>{{rental.owner}}'s {{rental.type}} in {{rental.city}}</li> move these to rental-tile.js & replace it with -->
      <!-- |rental| = |rental-from-template| -->
      {{rental-tile rental=rental}}
-     <!-- this mean = {{rental-tile rental-in-component = rental-from-template}} -->
+     <!-- this mean = {{rental-tile rental-in-component(w/in its own template which in this case is components/rental-tile template.hbs) = rental-from-template(w/in **index template)}} -->
   {{/each}}
 </ul>
 
@@ -19,8 +19,8 @@ We hope you find exactly what you're looking for in a place to stay.
 
 <!-- |rental| = individual rental object in the current iteration of the loop also refer to variable rental in the compenent's file as the model obj. -->
 
-<!-- rental on the left of the (=) refers to the variable name used w/in the component -->
+<!-- rental on the left of the (=) refers to the variable name used w/in the component w/in its own template-->
 
-<!-- rental on the right refer to the MODEL OBJ we're assigning this variable to  -->
+<!-- rental on the right refer to the MODEL OBJ we're assigning this variable to w/in index template -->
 
 <!--**Note rental=rental to make it consistent w/the name which mean refering to the same data but in different file either in the template or component files  -->
