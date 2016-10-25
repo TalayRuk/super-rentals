@@ -7,6 +7,9 @@
       <img src="{{rental.image}}" alt="{{rental.type}}" />
     </p>
   {{else}}
-      <button type="button" name="button">Show Image</button>
+      <button {{action 'imageShow'}}>Show Image</button>
+      <!-- {{action 'imageShow'}} use to trigger displaying image-->
   {{/if}} <!-- closing tag for if -->
 </li>
+
+<!--**By DEFAULT {{action}} helper listens for click events. When it's at a button, the action we denote will be automatcially triggered when that button is clicked   -->
