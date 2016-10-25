@@ -12,8 +12,26 @@ export default Ember.Component.extend({
     imageHide: function() {
       this.set('isImageShowing', false);
       //set back to false so the image will hide when it's clicked.
+    },
+
+    delete(rental) {
+      if (confirm('Are you sure you want to delete this rental?')) {
+        this.sendAction('destroyRental', rental);
+      }
+      //When delete clicked, the delete action will display a confirmation pop-up. Then If confirmed, it'll send the action destroyRental() upwards into Route handler by calling this.Action() (from rental-tile.hbs to rental-tile.js --> templates/index.hbs -> to routes/index.js --> to MODEL(firebase) not w/in the component!!!)
+
+      //this.sendAction need argument that we provide the name of the function on the template & route handler we'd like to activate (in this case, destroyRental(), that we'll create in index.hbs) & the specific rental to provide that action.
     }
   }
 });
 
 //Check out Route image/img-route-show/hide-img.png in our image folder
+
+// NOTE***Creating, Deleting and Updating objects in our data store should be handled by the route handler rather than within the component. ***from rental-tile.hbs to rental-tile.js --> templates/index.hbs -> to routes/index.js --> to MODEL(firebase)**
+
+//Check out route image/img-route-Delete.png
+
+//Data down, Actions up: sending from templates/components/rental-tile.hbs to templates/component/rental.js to templates/index.hbs to routes/index.js to model(firebase)
+
+//When rental is delete() action is activated, the line this.sendAction('destroyRental', rental); sends this action one level "up" to our templates/index.hbs
+//Then our templates/index.hbs will need to match the action it receives from the component to the appropriate action on the route handler(routes/index.js). We also do this in the same line that calls our component:
