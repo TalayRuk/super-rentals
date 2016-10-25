@@ -6,8 +6,14 @@ export default Ember.Component.extend({
   actions: {
     imageShow: function() {
       this.set('isImageShowing', true);
-    }
-    //When 'show image' button in rental-tile.hbs is clicked, the imageShow action defined here will run, setting the "isImageShowing" value to true.
+      //When 'show image' button in rental-tile.hbs is clicked, the imageShow action defined here will run, setting the "isImageShowing" value to true.
+    },
 
+    imageHide: function() {
+      this.set('isImageShowing', false);
+      //set back to false so the image will hide when it's clicked.
+    }
   }
 });
+
+//Check out Route image/img-route-show/hide-img.png in our image folder

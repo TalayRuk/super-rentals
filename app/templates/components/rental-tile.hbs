@@ -10,10 +10,9 @@
       <button {{action 'imageShow'}}>Show Image</button>
       <!-- {{action 'imageShow'}} use to trigger displaying image-->
   {{/if}} <!-- closing tag for if -->
+  <!--**By DEFAULT {{action}} helper listens for click events. When it's at a button, the action we denote will be automatcially triggered when that button is clicked   -->
+
+  <!-- when 'isImageShowing' value is true, #if}} statement in rental-tile.hbs will display our image -->
+
+  <!-- add action 'imageHide' helper to image. We can bind handle bars action handlers to any html element that is clickable -->
 </li>
-
-<!--**By DEFAULT {{action}} helper listens for click events. When it's at a button, the action we denote will be automatcially triggered when that button is clicked   -->
-
-<!-- when 'isImageShowing' value is true, {{#if}} statement in rental-tile.hbs will display our image -->
-
-<!-- add {{action 'imageHide'}} helper to image. We can bind {{action}} handlers to any HTML element that is clickable!! -->
