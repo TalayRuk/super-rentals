@@ -4,9 +4,23 @@ We hope you find exactly what you're looking for in a place to stay.
 
 <ul>
   {{#each model as |rental|}}
-     <li>{{rental.owner}}'s {{rental.type}} in {{rental.city}}</li>
+     <!-- <li>{{rental.owner}}'s {{rental.type}} in {{rental.city}}</li> move these to rental-tile.js & replace it with -->
+     <!-- |rental| = |rental-from-template| -->
+     {{rental-tile rental=rental}}
+     <!-- this mean = {{rental-tile rental-in-component = rental-from-template}} -->
   {{/each}}
 </ul>
 
 {{#link-to 'about'}}About{{/link-to}}
 {{#link-to 'contact'}}Click here to contact us.{{/link-to}}
+
+<!-- instead of displaying the rental detail drectly on the index template, we're rendering our new component by calling {{rental-tile rental=rental}}
+**Note** Components R completely isolated from their surroundings.  They don't automatically hv access to models & other info w/in context of route in which they're called. Anything that a component needs from its surroundings must be passed in Manually-->
+
+<!-- |rental| = individual rental object in the current iteration of the loop also refer to variable rental in the compenent's file as the model obj. -->
+
+<!-- rental on the left of the (=) refers to the variable name used w/in the component -->
+
+<!-- rental on the right refer to the MODEL OBJ we're assigning this variable to  -->
+
+<!--**Note rental=rental to make it consistent w/the name which mean refering to the same data but in different file either in the template or component files  -->
