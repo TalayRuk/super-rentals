@@ -7,7 +7,8 @@ We hope you find exactly what you're looking for in a place to stay.
      <!-- <li>{{rental.owner}}'s {{rental.type}} in {{rental.city}}</li> move these to rental-tile.js & replace it with -->
      <!-- |rental| = |rental-from-template| -->
      {{rental-tile rental=rental}}
-     <!-- this mean = {{rental-tile rental-in-component(w/in its own template which in this case is components/rental-tile template.hbs) = rental-from-template(w/in **index template)}} -->
+     <!-- left rental refer to rental-in-component w/in its template which in this case is *template/components/rental-tile.hbs
+        right rental refer to rental-from-template w/in **index template-->
   {{/each}}
 </ul>
 

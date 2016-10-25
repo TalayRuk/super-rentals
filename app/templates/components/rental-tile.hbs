@@ -1,3 +1,12 @@
 <li>
   {{rental.owner}}'s {{rental.type}} in {{rental.city}}
+  <!-- add hide & show image function for each rental -->
+  {{#if isImageShowing}}
+  <!-- isImageShowing set to False at app/components/rental-tile.js -->
+    <p>
+      <img src="{{rental.image}}" alt="{{rental.type}}" />
+    </p>
+  {{else}}
+      <button type="button" name="button">Show Image</button>
+  {{/if}} <!-- closing tag for if -->
 </li>
