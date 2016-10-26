@@ -1,1 +1,33 @@
-{{yield}}
+{{#if updateRentalForm}}
+  <h4>Update {{rental.owner}}'s{{rental.type}}</h4>
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="owner">OWNER</label>
+        {{input value=owner id="owner" placeholder=rental.owner}}
+        <!-- placeholder to pre propulated the owner's name -->
+      </div>
+      <div class="form-group">
+        <label for="type">TYPE </label>
+        {{input value=type id="type" placeholder=rental.type}}
+      </div>
+      <div class="form-group">
+        <label for="city">City </label>
+        {{input value=city id="city" placeholder=rental.city}}
+      </div>
+      <div class="form-group">
+        <label for="bedrooms">Bedrooms</label>
+        {{input value=bedrooms id="bedrooms" placeholder=rental.bedrooms}}
+      </div>
+      <div class="form-group">
+        <label for="image">Image URL</label>
+        {{input value=image id="image" placeholder=rental.image}}
+      </div>
+      <!-- add update btn before /form -->
+      <button {{action 'update' rental}}>Save</button>
+    </form>
+  </div>
+{{else}}
+    <!-- add btn to show form to update-->
+  <button {{action updateRentalForm}}>Update</button>
+{{/if}}  
