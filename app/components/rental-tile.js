@@ -21,7 +21,7 @@ export default Ember.Component.extend({
       //Add sendAction to pass up all 3 properties to route handler
       this.setAction('update', rental, params);
     //update() action in rental-tile is triggered when the child compone(update-rental) calls this.sendAction ..  which this actin just pass along all 3 properties up to index
-    //***Now we need to add update="update" action btwn rental=rental & destroyRental="destroyRental" in index route ... templates/index.hbs
+    //***Now we need to add update="update" action btwn rental=rental & destroyRental="destroyRental" in index route ... templates/index.hbs then we'll add update() in app/route/index.js
     },
 
     delete(rental) {

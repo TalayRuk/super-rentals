@@ -39,7 +39,14 @@ export default Ember.Route.extend({
       var newRental = this.store.createRecord('rental', params);
       newRental.save();// createRecord & save() r ember build in method
       this.transitionTo('index');
-      //Then transition back to index page & show new rental added to the list. 
+      //Then transition back to index page & show new rental added to the list.
+    },
+
+    update(rental, params) {
+      // use - this.store.update('update', rental, params) but since this is the update()='update'(this is the update() that came up from rental-tile.js)
+      
+      save?
+      this.transitionTo('index');
     },
 
     destroyRental(rental) {
