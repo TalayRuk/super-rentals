@@ -11,7 +11,7 @@
     <form>
       <div class="form-group">
         <label for="owner">Owner: </label>
-        <!-- put input in {{input}} helper that comes w/Ember which allow us to pass attributes, in this case we're only using value & id attributes -->
+        <!-- put input in {{input}} helper that comes w/Ember which allow us to pass attributes, in this case we're only using value & id attributes; works like <input> -->
         {{input value=owner id="owner"}}
       </div>
       <div class="form-group">
@@ -32,6 +32,7 @@
       </div>
       <!-- add Save form button -->
       <button {{action 'saveRental1'}}>Save</button>
+      <!-- now we can add function in new-rental.js -->
     </form>
 
   </div>
