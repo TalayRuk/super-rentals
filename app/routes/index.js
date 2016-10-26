@@ -35,6 +35,13 @@ export default Ember.Route.extend({
   },
   //now we need to add delete actions we created it in rental-tile.hbs & .js & defined destroyRental(rental)
   actions: {
+    saveRental3(params) {//params from new-rental.js to creat a new rental record in the store & then save it.
+      var newRental = this.store.createRecord('rental', params);
+      newRental.save();// createRecord & save() r ember build in method
+      this.transitionTo('index');
+      //Then transition back to index page & show new rental added to the list. 
+    },
+
     destroyRental(rental) {
       //When we clicked a rental's delete button, our action up from components(templates/components/rental-tile.hbs to rental-tile.js), through template (templates/index.hbs), & into the route handler(routes/index.js).
       rental.destroyRecord();
