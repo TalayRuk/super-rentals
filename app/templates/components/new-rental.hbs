@@ -1,0 +1,10 @@
+<!-- set a property, addNewRental to true/false
+- When True, form will show.
+- False, the button will show.  -->
+
+{{#if addNewRental}}
+  <p>
+    Display new rental form - to be replaced with form code soon
+  </p>
+{{else}}
+  <button {{action 'rentalFormShow'}}>Create New Rental</button>  
