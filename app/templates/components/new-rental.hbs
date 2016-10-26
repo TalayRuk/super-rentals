@@ -3,8 +3,37 @@
 - False, the button will show.  -->
 
 {{#if addNewRental}}
-  <p>
+  <!-- <p>
     Display new rental form - to be replaced with form code soon
-  </p>
+  </p> after add function in new-rental.js now add: -->
+  <h1>New Rental</h1>
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="owner">Owner: </label>
+        <!-- put input in {{input}} helper that comes w/Ember which allow us to pass attributes, in this case we're only using value & id attributes -->
+        {{input value=owner id="owner"}}
+      </div>
+      <div class="form-group">
+        <label for="type">Type: </label>
+        {{input value=type id="type"}}
+      </div>
+      <div class="form-group">
+        <label for="city">City: </label>
+        {{input value=city id="city"}}
+      </div>
+      <div class="form-group">
+        <label for="bedrooms">Number of Bedrooms: </label>
+        {{input value=bedrooms id="bedrooms"}}
+      </div>
+      <div class="form-group">
+        <label for="image">Image URL: </label>
+        {{input value=image id="image"}}
+      </div>
+      <!-- add button -->
+      <button {{action 'rentalFormShow'}}>Add New Rental</button>
+    </form>
+
+  </div>
 {{else}}
-  <button {{action 'rentalFormShow'}}>Create New Rental</button>  
+  <button {{action 'rentalFormShow'}}>Create New Rental</button>
