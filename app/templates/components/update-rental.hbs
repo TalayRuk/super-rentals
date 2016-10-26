@@ -1,4 +1,5 @@
 {{#if updateRentalForm}}
+<!-- we added property called updateRentalForm to toggle the form's display.  -->
   <h4>Update {{rental.owner}}'s{{rental.type}}</h4>
   <div>
     <form>
@@ -23,11 +24,13 @@
         <label for="image">Image URL</label>
         {{input value=image id="image" placeholder=rental.image}}
       </div>
-      <!-- add update btn before /form -->
+      <!-- add Save btn of new update form. We bound the action update to "save" btn. When the user fills out the form and clicks "save" the update action in the update-rental.js will be triggered. -->
       <button {{action 'update' rental}}>Save</button>
     </form>
   </div>
 {{else}}
-    <!-- add btn to show form to update-->
+    <!-- add Update btn to show form to update-->
   <button {{action updateRentalForm}}>Update</button>
-{{/if}}  
+{{/if}}
+
+<!-- Property called updateRentalForm to toggle the form's display. When this property is false, we'll see update button. Once update btn is clicked will set this property to True. We'll write that in update-rental.js -->
