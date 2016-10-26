@@ -19,7 +19,7 @@ export default Ember.Component.extend({
       //when the Save button clicked (Once the params r gathered, we hide the form by setting the updateRentalForm property back to false)
       this.set('updateRentalForm', false);
       //when 'update' btn clicked send Update action (update() & including rental argument & params variable data up one level b/c update-rental is nested w/in rental-tile) up to rental-tile.hbs then rental-tile will send to  route handler (in this case index.js)
-      this.sendAction('update', rental, params);
+      this.sendAction('update', rental, params); //also add this line to update function that we'll add it to rental-tile.js
     }
     //  rental-tile.hbs is a parent component of update-rental.hbs & js. Once rental-tile receives action from update-rental.js, it'll pass the action upward in order for this action to eventually reach the appropriate route. Thus, rental-tile.js will need to have update action as well in order to be able to send the action up to the route handler.
   }
