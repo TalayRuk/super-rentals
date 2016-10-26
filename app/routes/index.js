@@ -46,7 +46,8 @@ export default Ember.Route.extend({
       // use - this.store.update('update', rental, params) but since this is the update()='update'(this is the update() that came up from rental-tile.js)
       //ADD Debugger from chrome extension "Ember Inspector"
       debugger;
-      save?
+      // save
+      rental.save();
       this.transitionTo('index');
     },
 
