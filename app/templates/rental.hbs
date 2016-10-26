@@ -3,3 +3,6 @@
 <!-- When we had multiple records in the model(such as on the index route), calling model returned an array of rental objects.
 We then looped through this array to display details about each rental.
 ***But since the model in our rental.js route represents a single record, we can access its miscellaneous properties by calling model directly instead of using each helper -->
+
+{{rental-detail rental=model}}
+<!-- defining the component's rental variable as the current model -->
