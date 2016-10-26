@@ -15,5 +15,9 @@
   <!-- when 'isImageShowing' value is true, #if}} statement in rental-tile.hbs will display our image -->
 
   <!-- add action 'imageHide' helper to image. We can bind handle bars action handlers to any html element that is clickable -->
+  {{update-rental rental=rental update="update"}}
+  <!-- ***inorder to pass the rental object, and the update action we're about to create btwn the 2 components. -->
   <button {{action 'delete' rental}}>Delete Rental</button>
 </li>
+
+<!-- Add update function inside this file above the delete button -->
