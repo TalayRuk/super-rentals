@@ -27,10 +27,20 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   //add model hook
   model() {
-    return this.store.findAll('rental');
-    //to return to the application
-    //this.store mean firebase data store.
-    //findAll() method w/ rental as argument
+    return Ember.RSVP.hash({ //add new model using Ember.RSVP.hash to display Multiple Model types in one Model HOOK
+      rentals: this.store.findAll('rental'),
+      //to return to the application
+      //this.store mean firebase data store.
+      //findAll() method w/ rental as argument
+      reviews: this.store.findAll('review')
+    });
+      // both are promises. When Ember first loads your model hook, rentals and reviews are not instantly available. It has to reach out to Firebase and return them. This takes time. These statements are promises because they will not have completed when Ember first runs this code; it has to wait for these objects to return from Firebase.
+
+//A promise can be in one of three states: Pending, fulfilled, or rejected. When the code is first run, the promise is in the pending state. From here, it will either become fulfilled or rejected depending on whether it has successfully completed its goal. This is called resolving the promise.
+
+//Grouping multiple promises together in the RSVP.hash is beneficial because it merges multiple individual promises into one large promise. The RSVP.hash returns a new promise that is only fulfilled when all promises it contains are fulfilled.
+//This prevents asynchronous timing issues in your application by prompting Ember to wait for all necessary objects before rendering your templates and components.
+//more info about RSVP.hash: https://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/#toc_multiple-models
 
   },
   //now we need to add delete actions we created it in rental-tile.hbs & .js & defined destroyRental(rental)
