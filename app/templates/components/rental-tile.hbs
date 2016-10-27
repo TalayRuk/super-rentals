@@ -1,5 +1,6 @@
 <li>
-  {{rental.owner}}'s {{rental.type}} in {{rental.city}}
+  <!-- Add Link  -->
+  {{#link-to 'rental' rental.id}}{{rental.owner}}'s {{rental.type}} in {{rental.city}} {{/link-to}}
   <!-- add hide & show image function for each rental -->
   {{#if isImageShowing}}
   <!-- isImageShowing set to False at app/components/rental-tile.js -->
@@ -15,11 +16,11 @@
   <!-- when 'isImageShowing' value is true, #if}} statement in rental-tile.hbs will display our image -->
 
   <!-- add action 'imageHide' helper to image. We can bind handle bars action handlers to any html element that is clickable -->
-  {{update-rental rental=rental update="update"}}
+  <!-- {{update-rental rental=rental update="update"}} moved to rental.hbs -->
   <!-- ***inorder to pass the rental object, and the update action we're about to create btwn the 2 components. -->
-  <button {{action 'delete' rental}}>Delete Rental</button>
+  <!-- <button {{action 'delete' rental}}>Delete Rental</button> moved to rental-detail.hbs -->
 </li>
 
 <!-- Add update function inside this file above the delete button -->
 <!-- Y "update" -->
-<!-- we r mapping the update() action coming up from the component/update-rental.hbs(on the left of =) to the update() action that we'll write on update-rental.js -->  
+<!-- we r mapping the update() action coming up from the component/update-rental.hbs(on the left of =) to the update() action that we'll write on update-rental.js -->
