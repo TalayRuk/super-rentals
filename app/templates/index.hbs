@@ -3,7 +3,8 @@
 We hope you find exactly what you're looking for in a place to stay.
 
 <ul>
-  {{#each model as |rental|}}
+  <!-- b/c we have multiple models now, we need to use model.(dot notation) to specify which one we refer to -->
+  {{#each model.rentals as |rental|}}
      <!-- <li>{{rental.owner}}'s {{rental.type}} in {{rental.city}}</li> move these to rental-tile.js & replace it with -->
      <!-- |rental| = |rental-from-template| -->
      <!-- {{rental-tile rental=rental update="update" destroyRental="destroyRental"}} moved to rental.hbs-->
@@ -13,10 +14,19 @@ We hope you find exactly what you're looking for in a place to stay.
       {{rental-tile rental=rental}}
       <!-- moved UPDate & destroyRental to rental-tile.hbs -->
   {{/each}}
-</ul>
 
 {{new-rental saveRental2="saveRental3"}}
 <!-- this is not required naming convention. The Action name w/number just emphasize the individual steps that happen when passing an action up from component through template & into a route. now run ember g component new-rental to create new components for both app & template. So we can  define new-rental & btn to add new rental form & handle new rental form submissions  -->
+</ul>
+
+<!-- add model.reviews -->
+<ul>
+  {{#each model.reviews as |review|}}
+    <li>{{review.rating}} - {{review.content}} - by {{review.author}}</li>
+  {{/each}}
+</ul>
+<!-- Our index.hbs template now shows a list of all rentals and all reviews. but firebase doesn't have any reviews yet. So we need to update existing rentals.json seed file and import it to firebase database.  -->
+<hr>
 
 {{#link-to 'about'}}About{{/link-to}}
 {{#link-to 'contact'}}Click here to contact us.{{/link-to}}
