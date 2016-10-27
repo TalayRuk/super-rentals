@@ -53,6 +53,7 @@ export default Ember.Route.extend({
       });
       this.transitionTo('rental', rental);
       //displaying details for "rental"
+      //Next go to rental-detail.hbs to add display for a rental's reviews
     }
 //In plain ENGLISH for saveReview
 //Create a new review with the information from our parameters, save it to the database, and call it "newReview".
@@ -61,7 +62,7 @@ export default Ember.Route.extend({
 // Save "newReview", so it remembers what rental it belongs in.
 // Wait until "newReview" has finished saving, then save "rental" too, so it remembers it contains "newReview".
 // Afterwards, take us to the page displaying details for "rental".
-//Next go to rental-detail.hbs to add display for a rental's reviews
+
 
 //the role of JavaScript promises in an RSVP.hash? Logic in Ember routes is asynchronous, meaning Ember will not wait for one line to successfully complete or return a value before running the next line of code. Since our data is stored remotely in Firebase it takes a few extra moments for our application to save a new object. However, we don't want to run rental.save(); until newReview is successfully saved, or we risk our rental containing details for a review that doesn't actually exist. By using .then(), we're forcing Ember to wait until newReview is successfully saved before saving rental. For more information, check out Ember's documentation on asynchronous routing.
 //https://guides.emberjs.com/v2.3.0/routing/asynchronous-routing/
