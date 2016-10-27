@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     saveReview() {
       var params = {//add properties
         author: this.get('author'),
-        rate: this.get('rate'),
+        rating: this.get('rating'),
         content: this.get('content')
       };
       //now we have to set addNewReview to false again to hide
