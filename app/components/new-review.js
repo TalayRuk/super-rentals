@@ -15,7 +15,7 @@ export default Ember.Component.extend({
         author: this.get('author'),
         rating: this.get('rating'),
         content: this.get('content')
-        rental: this.get('rental')//don't need to add this to new-review.hbs (b/c since there's a rental model in the review model and in rental.hbs we also add rental=model)
+        rental: this.get('rental')//don't need to add this to new-review.hbs (b/c since there's a rental model in the review model and in rental.hbs we also add and access to current rental object at rental=model)
       };
       //now we have to set addNewReview to false again to hide
       this.set('addNewReview', false);
@@ -24,3 +24,5 @@ export default Ember.Component.extend({
     }
   }
 });
+//Once the review form is submitted, the action to save a new review will now be processed by the rental.js route instead of index.js
+//Thus we need to include the actions section of the rental route handler to rental.js 
