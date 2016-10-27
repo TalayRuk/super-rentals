@@ -12,3 +12,7 @@ We then looped through this array to display details about each rental.
 <!-- Any component action, we'll need to pass the action through the template in order to reach the route handler by declaring _destroyRental = "destroyRental"_ -->
 
 <!-- Now that destroyRental() and update() actions are occurring in the rental route, we can move these actions and any corresponding code from routes/index.js to routes/rental.js(new route handler for the rental-detail). The update action in the rental-tile component may also be removed, as we're now updating here on the rental template.  -->
+
+{{new-review saveReview="saveReview" rental=model}}
+<!-- after add the review to rental model now we need to move this from index.hbs to rental.hbs
+**Now we need update new-review.js to have rental in the new review but not new-review.hbs to include -->
