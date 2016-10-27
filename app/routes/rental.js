@@ -6,5 +6,6 @@ export default Ember.Route.extend({
     return this.store.findRecord('rental', params.rental_id);
     //findRecord() using id which takes 2 arguments; 1) the type of object('rental') 2) the object's specific id(params.rental_id)
     //After specified rental, the route will render the rental template/rental.hbs
+    
   },
 });

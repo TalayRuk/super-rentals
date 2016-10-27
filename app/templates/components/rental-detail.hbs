@@ -1,1 +1,13 @@
-{{yield}}
+Located in {{rental.city}}, this {{rental.bedrooms}} bedrooms {{rental.type}} is available by arrangement through {{rental.owner}}.
+<br>
+<p>
+  <img src="{{rental.image}}" alt="rental.type">
+</p>
+
+<button {{action 'delete' rental}}>Delete</button>
+
+<!-- //Refactoring:
+//This page displays individual rental  details,
+user's interactions w/a rental will occur on this route.
+In addition to dispaying rental details, let's also move our updat() & delete() actions into this route, instead of the index. -->
+<!-- Next we'll need to add delete() action to app/components/rental-detail.js -->
