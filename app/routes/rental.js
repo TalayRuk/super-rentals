@@ -28,7 +28,7 @@ export default Ember.Route.extend({
       rental.save();
       //Once update is done on the rental page then transition to the index route. to reload index w/updated
       this.transitionTo('index');
-      
+
     },
     destroyRental(rental) {
       //When we clicked a rental's delete button, our action up from components(templates/components/rental-tile.hbs to rental-tile.js), through template (templates/index.hbs), & into the route handler(routes/index.js).
@@ -37,6 +37,27 @@ export default Ember.Route.extend({
       //**destroyRecord() is already exist in Ember Method
       this.transitionTo('index');
       //To return to the templates/index.hbs page after a rental is deleted.
+    },
+
+    saveReview(params) {
+      //When we save a new child record (review) to a parent record (rental), we must save both sides of the relationship.
+      var newReview = this.store.createRecord('review', params)
+      var rental = params.rental;
+      //we first identify the new review object and the rental it will belong to.
+      rental.get('reviews').addObject(newReview);
+      //we add the new review to the reviews attribute of our current rental using the .addObject(); method.
+      newReview.save().then(function() {
+        return rental.save();
+        //we save the new review and specify to only save the rental after the review has been successfully saved by using .then();.
+      });
+      this.transitionTo('rental', rental);
     }
+//In plain ENGLISH for saveReview    
+//Create a new review with the information from our parameters, save it to the database, and call it "newReview".
+// Refer to the rental in those parameters as "rental".
+// Retrieve the list of reviews located in "rental", and add "newReview" to that list.
+// Save "newReview", so it remembers what rental it belongs in.
+// Wait until "newReview" has finished saving, then save "rental" too, so it remembers it contains "newReview".
+// Afterwards, take us to the page displaying details for "rental".
   }
 });

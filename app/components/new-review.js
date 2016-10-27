@@ -25,4 +25,4 @@ export default Ember.Component.extend({
   }
 });
 //Once the review form is submitted, the action to save a new review will now be processed by the rental.js route instead of index.js
-//Thus we need to include the actions section of the rental route handler to rental.js 
+//Thus we need to include the actions section of the rental route handler to routes/rental.js 

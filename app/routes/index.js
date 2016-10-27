@@ -52,10 +52,11 @@ export default Ember.Route.extend({
       //Then transition back to index page & show new rental added to the list.
     },
     //Add save for review using Review params from new-review.js
-    saveReview(params) {
-      var newReview = this.store.createRecord('review', params);
-      newReview.save();
-      this.transitionTo('index');
+    //Once review added to rental model & rental model added to review saveReview will B MOVED TO RENTAL.JS
+    // saveReview(params) {
+    //   var newReview = this.store.createRecord('review', params);
+    //   newReview.save();
+    //   this.transitionTo('index');
       //next we need to add a link to index.hbs to the new-review component
     }
 
