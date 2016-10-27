@@ -6,10 +6,12 @@ We hope you find exactly what you're looking for in a place to stay.
   {{#each model as |rental|}}
      <!-- <li>{{rental.owner}}'s {{rental.type}} in {{rental.city}}</li> move these to rental-tile.js & replace it with -->
      <!-- |rental| = |rental-from-template| -->
-     {{rental-tile rental=rental update="update" destroyRental="destroyRental"}}
+     <!-- {{rental-tile rental=rental update="update" destroyRental="destroyRental"}} moved to rental.hbs-->
      <!-- left rental refer to rental-in-component w/in its template which in this case is *template/components/rental-tile.hbs
         right rental refer to rental-from-template w/in **index template-->
       <!-- add destroyRental="destroyRental", we r mapping the destroyRental() action coming up from the component(on the left of =) to the destroyRental() action on the route handler that we'll write next. -->
+      {{rental-tile rental=rental}}
+      <!-- moved UPDate & destroyRental to rental-tile.hbs -->
   {{/each}}
 </ul>
 
