@@ -1,8 +1,14 @@
-<h2>More information about {{model.owner}}'s {{model.type}}</h2>
+<h2>More information about {{model.owner}}'s {{model.type}}:</h2>
 
 <!-- When we had multiple records in the model(such as on the index route), calling model returned an array of rental objects.
 We then looped through this array to display details about each rental.
 ***But since the model in our rental.js route represents a single record, we can access its miscellaneous properties by calling model directly instead of using each helper -->
 
-{{rental-detail rental=model}}
+<!-- add update from rental-tile.hbs and destroyRental -->
+{{update-rental rental=model update="update"}}
+{{rental-detail rental=model destroyRental="destroyRental"}}
 <!-- defining the component's rental variable as the current model -->
+
+<!-- Any component action, we'll need to pass the action through the template in order to reach the route handler by declaring _destroyRental = "destroyRental"_ -->
+
+<!-- Now that destroyRental() and update() actions are occurring in the rental route, we can move these actions and any corresponding code from routes/index.js to routes/rental.js(new route handler for the rental-detail). The update action in the rental-tile component may also be removed, as we're now updating here on the rental template.  -->
