@@ -10,7 +10,9 @@ Located in {{rental.city}}, this {{rental.bedrooms}} bedrooms {{rental.type}} is
   <!-- add review-tile.hbs here to display inside the rental-detail, once for each review -->
     {{review-tile review=review}}
   {{/each}}
+  <!-- We'll add code to review-tile.hbs next -->
 </ul>
+
 <button {{action 'delete' rental}}>Delete</button>
 
 <!-- //Refactoring:

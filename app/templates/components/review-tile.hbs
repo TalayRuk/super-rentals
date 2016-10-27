@@ -1,1 +1,6 @@
-{{yield}}
+<li>{{review.rating}} - {{review.content}} - by {{review.author}}</li>
+
+<!-- review is nested in the individual rental-detail.hbs -->
+<!-- All new reviews we create will be associated w/ their rental.
+(***Any reviews created b4 we implemented this relationship will not be associated w/a rental, simply b/c we didn't have that capability until now.)
+We need to clear our database b/c the previous data no longer -->
