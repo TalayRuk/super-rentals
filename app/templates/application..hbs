@@ -1,0 +1,12 @@
+<!-- The application template is where headers, footers, nav bars and any other content that should be on every page of the application should go.   -->
+
+<div class="container">
+  <header class="jumbotron">
+    <h1>SUPER RENTALS</h1>
+  </header>
+  {{outlet}}
+  <hr>
+  <footer>
+    {{#link-to 'contact'}} Our representatives would love to help {{/link-to}}
+  </footer>
+</div>

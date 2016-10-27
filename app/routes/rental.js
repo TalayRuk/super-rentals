@@ -26,8 +26,9 @@ export default Ember.Route.extend({
       //after looping through all keys
       // save the rental,
       rental.save();
-      //then transition to the index route. to reload index w/updated
+      //Once update is done on the rental page then transition to the index route. to reload index w/updated
       this.transitionTo('index');
+      
     },
     destroyRental(rental) {
       //When we clicked a rental's delete button, our action up from components(templates/components/rental-tile.hbs to rental-tile.js), through template (templates/index.hbs), & into the route handler(routes/index.js).
@@ -37,4 +38,5 @@ export default Ember.Route.extend({
       this.transitionTo('index');
       //To return to the templates/index.hbs page after a rental is deleted.
     }
+  }
 });
