@@ -50,7 +50,15 @@ export default Ember.Route.extend({
       newRental.save();// createRecord & save() r ember build in method
       this.transitionTo('index');
       //Then transition back to index page & show new rental added to the list.
+    },
+    //Add save for review using Review params from new-review.js
+    saveReview(params) {
+      var newReview = this.store.createRecord('review', params);
+      newReview.save();
+      this.transitionTo('index');
+      //next we need to add a link to index.hbs to the new-review component
     }
+
 //******MOVED TO App/Routes/RENTAL.JS
     // update(rental, params) {
     //   // use - this.store.update('update', rental, params) but since this is the update()='update'(this is the update() that came up from rental-tile.hbs from .js from update-rental.js)
