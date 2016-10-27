@@ -58,7 +58,7 @@ export default Ember.Route.extend({
     //   newReview.save();
     //   this.transitionTo('index');
       //next we need to add a link to index.hbs to the new-review component
-    }
+    // }
 
 //******MOVED TO App/Routes/RENTAL.JS
     // update(rental, params) {

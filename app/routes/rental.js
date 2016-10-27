@@ -41,7 +41,7 @@ export default Ember.Route.extend({
 
     saveReview(params) {
       //When we save a new child record (review) to a parent record (rental), we must save both sides of the relationship.
-      var newReview = this.store.createRecord('review', params)
+      var newReview = this.store.createRecord('review', params);
       var rental = params.rental;
       //we first identify the new review object and the rental it will belong to.
       rental.get('reviews').addObject(newReview);
