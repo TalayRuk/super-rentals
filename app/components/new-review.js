@@ -19,6 +19,7 @@ export default Ember.Component.extend({
       //now we have to set addNewReview to false again to hide
       this.set('addNewReview', false);
       this.sendAction('saveReview', params); //actions up to route handler = routes/index.js
+      //when user enter the review this will save it to the firebase
     }
   }
 });
