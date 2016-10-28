@@ -31,8 +31,18 @@ export default Ember.Route.extend({
 
     },
     destroyRental(rental) {
+      //add destroy the child reviews of a rental before destroying rental. Define a variable review_deletions that iterates over all the rental's reviews, destroying them one by one.
+      var review_deletions = rental.get('reviews').map(function(review) {
+        return review.destroyRecord();
+      });
+      Ember.RSVP.all(review_deletions).then(function() {
+        return rental.destroyRecord();
+      // waits until all reviews are destroyed b4 proceeding to then destroy the rental.
+      //Ember.RSVP.all = 'packages' multiple promises into one. The one promise is only resolved when each of its containing promises are fulfilled. ***This guarantees that Ember won't delete the rental until each review has been destroyed. More information about the RSVP Library Ember utilizes to organize promises can be found in the RSVP.js README and in the Ember Documentation for the RSVP.Promise class.
+
+      });
       //When we clicked a rental's delete button, our action up from components(templates/components/rental-tile.hbs to rental-tile.js), through template (templates/index.hbs), & into the route handler(routes/index.js).
-      rental.destroyRecord();
+      // rental.destroyRecord(); **MOVED UP TO EMBER.RSVP
       //Then the route handler will access our data store (firebase) & delete the obj.
       //**destroyRecord() is already exist in Ember Method
       this.transitionTo('index');
@@ -71,7 +81,8 @@ export default Ember.Route.extend({
     destroyReview(review) {
       review.destroyRecord();
       this.transitionTo('index');
-    }
+    }//this code will delete the review both in application and in Firebase data store
   }
 
 });
+//Next when rental is destroyed, a one-to-many relationship exists btwn 2 models, Thus all of the child records(reviews) must be destroyed before the parent (rental). This prevents orphans in the database that reference parent records that are no longer available. We need to UPDATE the action to destroy the child reviews of a rental before destroying the rental***
