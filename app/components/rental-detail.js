@@ -6,6 +6,11 @@ export default Ember.Component.extend({
       if (confirm('Are you sure you want to delete this rental?')) {
         this.sendAction('destroyRental', rental);
       }
+    },
+    //add delete review
+    delete(review) {
+      this.sendAction('destroyReview', review);
+      //next: add code for delete in --templates/rental.hbs 
     }
   }
 });
