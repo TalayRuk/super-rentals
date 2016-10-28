@@ -6,7 +6,7 @@ We then looped through this array to display details about each rental.
 
 <!-- add update from rental-tile.hbs and destroyRental -->
 {{update-rental rental=model update="update"}}
-{{rental-detail rental=model destroyRental="destroyRental"}}
+{{rental-detail rental=model destroyRental="destroyRental" destroyReview="destroyReview"}}
 <!-- defining the component's rental variable as the current model -->
 
 <!-- Any component action, we'll need to pass the action through the template in order to reach the route handler by declaring _destroyRental = "destroyRental"_ -->

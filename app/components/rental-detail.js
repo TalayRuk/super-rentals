@@ -8,9 +8,9 @@ export default Ember.Component.extend({
       }
     },
     //add delete review
-    delete(review) {
+    destroyReview(review) {
       this.sendAction('destroyReview', review);
-      //next: add code for delete in --templates/rental.hbs 
+      //next: add code for destroyReview in  templates/rental.hbs at rental-detail right after destroyRental!
     }
   }
 });
