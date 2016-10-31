@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     saveReview() {
       var params = {//add properties
         author: this.get('author'),
-        rating: this.get('rating'),
+        rating: parseInt(this.get('rating')),
         content: this.get('content'),
         rental: this.get('rental')//don't need to add this to new-review.hbs (b/c since there's a rental model in the review model and in rental.hbs we also add and access to current rental object at rental=model)
       };

@@ -1,11 +1,11 @@
 <li>
   <!-- Add Link  -->
-  {{#link-to 'rental' rental.id}}{{rental.owner}}'s {{rental.type}} in {{rental.city}} {{/link-to}}
+    {{rental-popularity rental}} {{#link-to 'rental' rental.id}}{{rental.owner}}'s {{rental.type}} in {{rental.city}} {{/link-to}} {{rental-cost rental}}
   <!-- add hide & show image function for each rental -->
   {{#if isImageShowing}}
   <!-- isImageShowing set to False at app/components/rental-tile.js -->
     <p>
-      <img src="{{rental.image}}" alt="{{rental.type}}" {{action 'imageHide'}}>
+      <img src="{{rental.image}}" alt="{{rental.type}}" {{action 'imageHide'}}>   
     </p>
   {{else}}
       <button {{action 'imageShow'}}>Show Image</button>

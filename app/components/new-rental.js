@@ -20,6 +20,7 @@ export default Ember.Component.extend({
         city: this.get('city'),
         bedrooms: this.get('bedrooms'),
         image: this.get('image'),
+        cost:this.get('cost'),
         //When the field is not populated, its value will be undefined
         //**** undefined is not a valid JSON type. It'll prevent the record from being written to Firebase & cause an error.
         //For field that might be leave blank or undefined should add a conditional that sets them to "" or null;

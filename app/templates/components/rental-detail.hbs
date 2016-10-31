@@ -6,7 +6,7 @@ Located in {{rental.city}}, this {{rental.bedrooms}} bedrooms {{rental.type}} is
 <!-- Add Display review inside the rental -->
 <h2>REVIEWS </h2>
 <ul>
-  {{#each rental.reviews as |review|}}
+  {{#each sortedReviews as |review|}}
   <!-- add review-tile.hbs here to display inside the rental-detail, once for each review -->
     {{review-tile review=review destroyReview="destroyReview"}}
   {{/each}}
