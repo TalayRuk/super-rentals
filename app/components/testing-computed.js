@@ -6,12 +6,5 @@ export default Ember.Component.extend({
   fullName: Ember.computed('fName','lName', function(){
     return `${this.get('fName')} ${this.get('lName')}`;
   }),
-  actions: {
-    updateFName() {
-      this.set('fName', this.fName);
-    },
-    updateLName() {
-      this.set('lName', this.lName);
-    }
-  }
+  
 });
