@@ -13,6 +13,9 @@ Located in {{rental.city}}, this {{rental.bedrooms}} bedrooms {{rental.type}} is
   <!-- We'll add code to review-tile.hbs next -->
   <!-- Add destroyReview and we'll add code to rental-detail.js next -->
 </ul>
+<div>
+    {{google-map rental=rental}}
+</div>
 
 <button {{action 'delete' rental}}>Delete</button>
 <hr>

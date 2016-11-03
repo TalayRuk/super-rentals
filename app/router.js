@@ -6,10 +6,12 @@ const Router = Ember.Router.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {// all routes below are automatically created by ember when run ember g route ... on the terminal
+Router.map(function() {
+  // all routes below are automatically created by ember when run ember g route ... on the terminal
   this.route('about');
   this.route('contact');
   this.route('rental', {path: '/rental/:rental_id'});//path id = dynamic segment
+  this.route('store');
 });
 
 export default Router;//Route & Router is the same the diff is that Route is like a noun & Router is like a verb

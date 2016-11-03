@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   //******REMOVED b/c UPDATE() ACTION IS NOW UPDATING ON THE RENTAL TEMPLATES/RENTAL.HBS*************
   // updateRentalForm: false,
 //************************************
+  //Inject our service, we use the camelCase version of the file name (ie: shopping-cart becomes shoppingCart)
+  shoppingCart: Ember.inject.service(),
 
   actions: {
     imageShow: function() {
@@ -17,7 +19,7 @@ export default Ember.Component.extend({
     imageHide: function() {
       this.set('isImageShowing', false);
       //set back to false so the image will hide when it's clicked.
-    }
+    },
     //************REMOVED UPDATE()****************************
     //add UPDATE function w/update(), rental argument & params
     // update(rental, params) {
@@ -34,6 +36,12 @@ export default Ember.Component.extend({
     // }  //When delete clicked, the delete action will display a confirmation pop-up. Then If confirmed, it'll send the action destroyRental() upwards into Route handler by calling this.Action() (from rental-tile.hbs to rental-tile.js --> templates/index.hbs -> to routes/index.js --> to MODEL(firebase) not w/in the component!!!)
 
       //this.sendAction need argument that we provide the name of the function on the template & route handler we'd like to activate (in this case, destroyRental(), that we'll create in index.hbs) & the specific rental to provide that action.
+
+  //****************Ember.inject********************
+    addToCart(rental) {
+      this.get('shoppingCart').add(rental);
+      //We're also defining an .addToCart() action that takes the item as an argument, gets the shoppingCart service we've injected, and then calls the service's .add() method to push the item to our items array in services/shopping-cart.js
+    },
   }
 });
 

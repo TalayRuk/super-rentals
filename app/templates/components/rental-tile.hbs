@@ -5,7 +5,7 @@
   {{#if isImageShowing}}
   <!-- isImageShowing set to False at app/components/rental-tile.js -->
     <p>
-      <img src="{{rental.image}}" alt="{{rental.type}}" {{action 'imageHide'}}>   
+      <img src="{{rental.image}}" alt="{{rental.type}}" {{action 'imageHide'}}>
     </p>
   {{else}}
       <button {{action 'imageShow'}}>Show Image</button>
@@ -19,6 +19,16 @@
   <!-- {{update-rental rental=rental update="update"}} moved to rental.hbs -->
   <!-- ***inorder to pass the rental object, and the update action we're about to create btwn the 2 components. -->
   <!-- <button {{action 'delete' rental}}>Delete Rental</button> moved to rental-detail.hbs -->
+
+  <!-- render each product in the model to the cart when button is clicked -->
+  <p>
+  {{rental.owner}}<br>
+  {{rental.city}}<br>
+  {{rental.type}}<br>
+  {{rental.bedrooms}}<br>
+  {{rental.cost}}<br>
+  <button {{action 'addToCart' rental}}> Add to Cart </button>
+</p>
 </li>
 
 <!-- Add update function inside this file above the delete button -->

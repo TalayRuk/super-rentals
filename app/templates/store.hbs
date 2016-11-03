@@ -1,0 +1,4 @@
+<!-- retuarn all rentals in our database but in this case we don't need to use store.hbs b/c we already have index.hbs as store -->
+{{#each model as |rental|}}
+  {{rental-tile rental=rental}}
+{{/each}}
