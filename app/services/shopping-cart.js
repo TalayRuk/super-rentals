@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  items: [],
+  rentals: [],
 
-  add(item) {
-    this.get('items').pushObject(item);
+  add(rental) {
+    this.get('rentals').pushObject(rental);
   },
-  remove(item) {
-    this.get('items').removeObject(item);
+  remove(rental) {
+    this.get('rentals').removeObject(rental);
   }
 });

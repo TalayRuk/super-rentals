@@ -28,7 +28,7 @@ import Ember from 'ember';
 const {
   Route,
   RSVP: {hash}
-} = Ember
+} = Ember;
 
 export default Route.extend({
   //add model hook

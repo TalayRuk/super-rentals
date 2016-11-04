@@ -1,9 +1,14 @@
-{{#each shoppingCart.rentals as |item|}}
-  {{item.owner}} --{{item.cost}}
-  <button class="btn btn-primary btn-sm" {{action 'remove' item}}>remove</button>
+{{#each shoppingCart.rentals as |rental|}}
+  {{rental.owner}} price ${{rental.cost}} per night
+      <button class="btn btn-primary btn-sm" {{action 'remove' item}}>remove</button> <br>
 {{/each}}
 
-<br>
+<!-- {{#each rentalPriceArray as |cost|}}
+  <h3>{{cost}}</h3>
+{{/each}} -->
+<!-- **This is how to display cost only from mapBy() -->
 
+<hr>
 
-<h2> Total: {{shoppingCart.cost}}</h2>
+<h3 class="total"> Total price for all properties:</h3>
+<h2 class="price">${{totalRentalPrice}} per night.</h2>
