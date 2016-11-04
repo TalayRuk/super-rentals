@@ -24,10 +24,16 @@ import Ember from 'ember';
 //   image: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg"
 // }]; removed this section since we already put it in our rental.json to firebase
 
-export default Ember.Route.extend({
+//****destructure /shorten*******
+const {
+  Route,
+  RSVP: {hash}
+} = Ember
+
+export default Route.extend({
   //add model hook
   model() {
-    return Ember.RSVP.hash({ //add new model using Ember.RSVP.hash to display Multiple Model types in one Model HOOK
+    return hash({ //add new model using Ember.RSVP.hash to display Multiple Model types in one Model HOOK (to do multi promises into 1 promises = do everything)
       rentals: this.store.findAll('rental'),
       //to return to the application
       //this.store mean firebase data store.

@@ -6,5 +6,4 @@ export default Ember.Component.extend({
   fullName: Ember.computed('fName','lName', function(){
     return `${this.get('fName')} ${this.get('lName')}`;
   }),
-  
 });

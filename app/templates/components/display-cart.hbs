@@ -1,3 +1,9 @@
 {{#each shoppingCart.rentals as |item|}}
-  {{item.owner}} --{{item.cost}} <button class="btn btn-primary btn-sm" {{action 'remove' item}}>remove</button>
+  {{item.owner}} --{{item.cost}}
+  <button class="btn btn-primary btn-sm" {{action 'remove' item}}>remove</button>
 {{/each}}
+
+<br>
+
+
+<h2> Total: {{shoppingCart.cost}}</h2>
